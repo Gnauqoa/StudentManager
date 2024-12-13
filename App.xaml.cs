@@ -1,7 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
-using StudentManagement;
+﻿using System.Windows;
+using Microsoft.EntityFrameworkCore;
+using StudentManagement.Data;
 
 namespace StudentManager
 {
@@ -11,7 +10,19 @@ namespace StudentManager
     public partial class App : Application
     {
 
-    
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            // Automatically apply migrations when the app starts
+            using (var context = new AppDbContext())
+            {
+              
+            }
+
+
+        }
+
     }
 
 }

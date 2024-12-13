@@ -1,16 +1,17 @@
-﻿using Npgsql;
-using StudentManagement;
+﻿using StudentManagement;
+using StudentManagement.Data;
 using System.Windows;
 
 namespace StudentManager
 {
     public partial class MainWindow : Window
     {
-    private string connectionString = "Port=5433;Host=localhost;Username=postgres;Password=1;Database=studentmanagement";
+        private AppDbContext _context;
 
         public MainWindow()
         {
             InitializeComponent();
+            _context = new AppDbContext();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -36,16 +37,11 @@ namespace StudentManager
 
         private bool CheckLogin(string username, string password)
         {
-            using (var connection = new NpgsqlConnection(connectionString))
-            {
-                connection.Open();
-                var command = new NpgsqlCommand("SELECT COUNT(*) FROM users WHERE username = @username AND password = @password", connection);
-                command.Parameters.AddWithValue("username", username);
-                command.Parameters.AddWithValue("password", password); // Cần mã hóa mật khẩu trong thực tế
+            // Use Entity Framework to check login credentials
+            var user = _context.Users
+                               .FirstOrDefault(u => u.Username == username && u.Password == password);
 
-                var result = (long)command.ExecuteScalar();
-                return result > 0;
-            }
+            return user != null;
         }
     }
 }
