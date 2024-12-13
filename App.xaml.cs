@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using StudentManagement;
 
 namespace StudentManager
 {
@@ -9,6 +10,8 @@ namespace StudentManager
     /// </summary>
     public partial class App : Application
     {
+
+    
     }
 
 }

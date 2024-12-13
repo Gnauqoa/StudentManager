@@ -1,6 +1,4 @@
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.csproj.AssemblyReference.cache
-C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\MainWindow.baml
-C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\MainWindow.g.cs
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\App.g.cs
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager_MarkupCompile.cache
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.g.resources
@@ -122,3 +120,8 @@ C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-window
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.genruntimeconfig.cache
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\ref\StudentManager.dll
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.sourcelink.json
+C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\Views\StudentWindow.baml
+C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\Views\StudentWindow.g.cs
+C:\Users\USER\source\repos\StudentManager\StudentManager\bin\Debug\net9.0-windows\BCrypt.Net-Next.dll
+C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\MainWindow.g.cs

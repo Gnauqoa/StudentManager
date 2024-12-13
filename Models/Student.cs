@@ -1,11 +1,14 @@
-﻿using System;
+﻿
 
-public class Student
+// Models/User.cs
+namespace StudentManagement.Models
 {
-    public int Id { get; set; }
-    public string StudentId { get; set; }
-    public string FullName { get; set; }
-    public string Class { get; set; }
-    public DateTime DateOfBirth { get; set; }
-    public decimal GPA { get; set; }
+    public class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+    }
 }

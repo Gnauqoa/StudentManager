@@ -1,64 +1,50 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using Npgsql;
+using StudentManagement;
+using System.Windows;
 
-namespace StudentManagement
+namespace StudentManager
 {
     public partial class MainWindow : Window
     {
-        private string connectionString = "Port=5433;Host=localhost;Username=postgres;Password=1;Database=studentmanagement";
+    private string connectionString = "Port=5433;Host=localhost;Username=postgres;Password=1;Database=studentmanagement";
 
         public MainWindow()
         {
             InitializeComponent();
-            LoadStudents();
         }
 
-        private void LoadStudents()
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            // Your database loading code remains unchanged
-        }
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Your add button code remains unchanged
-        }
-
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Your update button code remains unchanged
-        }
-
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Your delete button code remains unchanged
-        }
-
-        private void RemoveText(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && textBox.Text == "Please enter name" || textBox.Text == "Please enter age" ||
-                textBox.Text == "Please enter address" || textBox.Text == "Please enter phone number")
+            // Kiểm tra tài khoản trong cơ sở dữ liệu
+            if (CheckLogin(username, password))
             {
-                textBox.Text = "";
-                textBox.Foreground = System.Windows.Media.Brushes.Black;  // Change text color when typing
+                MessageBox.Show("Login successful!");
+
+                // Mở trang quản lý sau khi đăng nhập thành công
+                var studentPage = new StudentWindow();
+                studentPage.Show();
+                this.Close(); // Đóng cửa sổ đăng nhập
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
             }
         }
 
-        private void AddText(object sender, RoutedEventArgs e)
+        private bool CheckLogin(string username, string password)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            using (var connection = new NpgsqlConnection(connectionString))
             {
-                if (textBox.Name == "NameTextBox")
-                    textBox.Text = "Please enter name";
-                else if (textBox.Name == "AgeTextBox")
-                    textBox.Text = "Please enter age";
-                else if (textBox.Name == "AddressTextBox")
-                    textBox.Text = "Please enter address";
-                else if (textBox.Name == "PhoneTextBox")
-                    textBox.Text = "Please enter phone number";
+                connection.Open();
+                var command = new NpgsqlCommand("SELECT COUNT(*) FROM users WHERE username = @username AND password = @password", connection);
+                command.Parameters.AddWithValue("username", username);
+                command.Parameters.AddWithValue("password", password); // Cần mã hóa mật khẩu trong thực tế
 
-                textBox.Foreground = System.Windows.Media.Brushes.Gray;  // Change text color when placeholder appears
+                var result = (long)command.ExecuteScalar();
+                return result > 0;
             }
         }
     }
