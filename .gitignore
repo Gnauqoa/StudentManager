@@ -1,0 +1,70 @@
+# Ignore Visual Studio files
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+userprefs/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]eploy/
+[Dd]ebug/
+[Dd]ebugFinal/
+[Dd]ebug\
+[Dd]ebug_x86/
+[Dd]ebug_x64/
+[Dd]ebug_arm/
+[Dd]ebug_arm64/
+[Dd]ebug_standalone/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+app.publish/
+publish/
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+
+# NuGet Packages
+*.nupkg
+# Uncomment if you have an 'packages' directory
+# /packages
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.csproj.user
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+app.publish/
+publish/
+
+# Ignore the directory of the built files (excluding the necessary ones)
+bin/
+obj/
+
+# ASP.NET Scaffolding
+Scaffolding/
+
+# JetBrains Rider
+.idea/
+
+# Microsoft Office temporary files
+~$*
