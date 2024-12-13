@@ -1,6 +1,4 @@
-﻿
-
-// Models/User.cs
+﻿// Models/User.cs
 namespace StudentManagement.Models
 {
     public class Student
