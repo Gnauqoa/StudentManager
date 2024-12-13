@@ -121,3 +121,4 @@ C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-window
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.pdb
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.genruntimeconfig.cache
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\ref\StudentManager.dll
+C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\StudentManager.sourcelink.json
