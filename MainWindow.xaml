@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Quản lý Sinh Viên" Height="350" Width="525">
     <Grid>
-        <q Name="NameTextBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="NameTextBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
         <TextBox Name="AgeTextBox" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="200"/>
         <TextBox Name="AddressTextBox" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="200"/>
         <TextBox Name="PhoneTextBox" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="200"/>
