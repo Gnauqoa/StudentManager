@@ -15,11 +15,14 @@
                          Margin="10,20,0,0"
                          VerticalAlignment="Top"
                          Width="200"
+                         Text="Please enter name"
                          Foreground="Gray"/>
 
                 <!-- Age Label and Input -->
-                <TextBlock Text="Age:"
-                           HorizontalAlignment="Left"
+                <TextBlock Text="
+                                Age:"
+                           HorizontalAlignment="
+                                Left"
                            Margin="10,50,0,0"
                            VerticalAlignment="Top"
                            FontWeight="Bold"/>
@@ -28,11 +31,13 @@
                          Margin="10,70,0,0"
                          VerticalAlignment="Top"
                          Width="200"
+                         Text="Please enter age"
                          Foreground="Gray"/>
 
                 <!-- Address Label and Input -->
                 <TextBlock Text="Address:"
-                           HorizontalAlignment="Left"
+                           HorizontalAlignment="
+                                        Left"
                            Margin="10,100,0,0"
                            VerticalAlignment="Top"
                            FontWeight="Bold"/>
@@ -41,6 +46,7 @@
                          Margin="10,120,0,0"
                          VerticalAlignment="Top"
                          Width="200"
+                         Text="Please enter address"
                          Foreground="Gray"/>
 
                 <!-- Phone Label and Input -->
@@ -54,6 +60,7 @@
                          Margin="10,170,0,0"
                          VerticalAlignment="Top"
                          Width="200"
+                         Text="Please enter phone number"
                          Foreground="Gray"/>
 
                 <!-- Buttons -->
@@ -81,6 +88,14 @@
                         Height="30"
                         Margin="220,120,0,0"
                         Click="DeleteButton_Click"/>
+                <Button Name="ExportBUtton"
+                        Content="Xuất Excel"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="100"
+                        Height="30"
+                        Margin="220,120,0,0"
+                        Click="ExportButton_Click"/>
 
                 <!-- Data Grid -->
                 <DataGrid Name="StudentsDataGrid"
