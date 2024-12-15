@@ -15,10 +15,7 @@
                          Margin="10,20,0,0"
                          VerticalAlignment="Top"
                          Width="200"
-                         Text="Please enter username"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+                         Foreground="Gray"/>
                 <TextBlock Text="Password:"
                            HorizontalAlignment="Left"
                            Margin="10,50,0,0"
@@ -31,9 +28,7 @@
                              Width="200"
                              PasswordChar="*"
                              Tag="Please enter password"
-                             Foreground="Gray"
-                             GotFocus="RemovePasswordPlaceholder"
-                             LostFocus="AddPasswordPlaceholder"/>
+                             Foreground="Gray"/>
 
                 <TextBlock Text="Full name:"
                            HorizontalAlignment="Left"
@@ -45,10 +40,7 @@
                          Margin="10,110,0,0"
                          VerticalAlignment="Top"
                          Width="200"
-                         Text="Please enter full name"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+                         Foreground="Gray"/>
 
 
                 <!-- Buttons for CRUD Operations -->

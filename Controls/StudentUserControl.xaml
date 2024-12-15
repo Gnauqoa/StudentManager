@@ -15,10 +15,7 @@
                          Margin="10,20,0,0"
                          VerticalAlignment="Top"
                          Width="200"
-                         Text="Please enter name"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+                         Foreground="Gray"/>
 
                 <!-- Age Label and Input -->
                 <TextBlock Text="Age:"
@@ -31,10 +28,7 @@
                          Margin="10,70,0,0"
                          VerticalAlignment="Top"
                          Width="200"
-                         Text="Please enter age"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+                         Foreground="Gray"/>
 
                 <!-- Address Label and Input -->
                 <TextBlock Text="Address:"
@@ -47,10 +41,7 @@
                          Margin="10,120,0,0"
                          VerticalAlignment="Top"
                          Width="200"
-                         Text="Please enter address"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+                         Foreground="Gray"/>
 
                 <!-- Phone Label and Input -->
                 <TextBlock Text="Phone:"
@@ -63,10 +54,7 @@
                          Margin="10,170,0,0"
                          VerticalAlignment="Top"
                          Width="200"
-                         Text="Please enter phone number"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+                         Foreground="Gray"/>
 
                 <!-- Buttons -->
                 <Button Name="AddButton"

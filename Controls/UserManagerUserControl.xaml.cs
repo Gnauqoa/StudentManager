@@ -15,47 +15,6 @@ namespace StudentManagement
       LoadUsers();
     }
 
-
-    private void RemoveText(object sender, RoutedEventArgs e)
-    {
-      var textBox = sender as System.Windows.Controls.TextBox;
-      if (textBox.Text == $"Please enter {textBox.Tag}")
-      {
-        textBox.Text = "";
-        textBox.Foreground = System.Windows.Media.Brushes.Black;
-      }
-    }
-
-    private void AddText(object sender, RoutedEventArgs e)
-    {
-      var textBox = sender as System.Windows.Controls.TextBox;
-      if (string.IsNullOrWhiteSpace(textBox.Text))
-      {
-        textBox.Text = $"Please enter {textBox.Tag}";
-        textBox.Foreground = System.Windows.Media.Brushes.Gray;
-      }
-    }
-
-    private void RemovePasswordPlaceholder(object sender, RoutedEventArgs e)
-    {
-      var passwordBox = sender as System.Windows.Controls.PasswordBox;
-      if (passwordBox.Tag.ToString() == "Please enter password")
-      {
-        passwordBox.Clear();
-        passwordBox.Foreground = System.Windows.Media.Brushes.Black;
-      }
-    }
-
-    private void AddPasswordPlaceholder(object sender, RoutedEventArgs e)
-    {
-      var passwordBox = sender as System.Windows.Controls.PasswordBox;
-      if (string.IsNullOrWhiteSpace(passwordBox.Password))
-      {
-        passwordBox.Tag = "Please enter password";
-        passwordBox.Foreground = System.Windows.Media.Brushes.Gray;
-      }
-    }
-
     private void LoadUsers()
     {
       // Load users into the DataGrid (placeholder for actual implementation)
