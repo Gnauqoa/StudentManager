@@ -15,6 +15,7 @@ namespace StudentManagement
       LoadUsers();
     }
 
+
     private void RemoveText(object sender, RoutedEventArgs e)
     {
       var textBox = sender as System.Windows.Controls.TextBox;

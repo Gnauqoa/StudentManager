@@ -162,3 +162,4 @@ C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-window
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\Controls\LoginUserControl.g.cs
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\Controls\StudentUserControl.g.cs
 C:\Users\USER\source\repos\StudentManager\StudentManager\obj\Debug\net9.0-windows\Controls\UserManagerUserControl.g.cs
+C:\Users\USER\source\repos\StudentManager\StudentManager\bin\Debug\net9.0-windows\Microsoft.Office.Interop.Excel.dll

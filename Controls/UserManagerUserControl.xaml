@@ -49,20 +49,7 @@
                          Foreground="Gray"
                          GotFocus="RemoveText"
                          LostFocus="AddText"/>
-                <TextBlock Text="Email:"
-                           HorizontalAlignment="Left"
-                           Margin="10,130,0,0"
-                           VerticalAlignment="Top"
-                           FontWeight="Bold"/>
-                <TextBox Name="EmailTextBox"
-                         HorizontalAlignment="Left"
-                         Margin="10,150,0,0"
-                         VerticalAlignment="Top"
-                         Width="200"
-                         Text="Please enter email"
-                         Foreground="Gray"
-                         GotFocus="RemoveText"
-                         LostFocus="AddText"/>
+
 
                 <!-- Buttons for CRUD Operations -->
                 <Button Name="AddUserButton"
@@ -89,6 +76,7 @@
                         Height="30"
                         Margin="270,100,0,0"
                         Click="DeleteUserButton_Click"/>
+
 
                 <!-- DataGrid to Display Users -->
                 <DataGrid Name="UsersDataGrid"
