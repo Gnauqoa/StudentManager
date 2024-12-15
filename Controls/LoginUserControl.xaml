@@ -4,14 +4,33 @@
              Height="300"
              Width="400">
   <Grid>
+    <!-- Username Label -->
+    <TextBlock Text="Username"
+               Margin="50,30,50,0"
+               VerticalAlignment="Top"
+               Height="20"
+               FontWeight="Bold"/>
+
+    <!-- Username Input -->
     <TextBox Name="UsernameTextBox"
              Margin="50,50,50,0"
              VerticalAlignment="Top"
              Height="30"/>
+
+    <!-- Password Label -->
+    <TextBlock Text="Password"
+               Margin="50,80,50,0"
+               VerticalAlignment="Top"
+               Height="20"
+               FontWeight="Bold"/>
+
+    <!-- Password Input -->
     <PasswordBox Name="PasswordBox"
                  Margin="50,100,50,0"
                  VerticalAlignment="Top"
                  Height="30"/>
+
+    <!-- Login Button -->
     <Button Name="LoginButton"
             Content="Login"
             Margin="150,150,150,0"
