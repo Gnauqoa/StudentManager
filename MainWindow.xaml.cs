@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using StudentManagement.Models;
@@ -37,6 +38,10 @@ namespace StudentManagement
             InitializeComponent();
             DataContext = this;
             LoadLoginPage();
+
+
+
+            // Display the output in the TextBox
         }
 
         private void LoadLoginPage()

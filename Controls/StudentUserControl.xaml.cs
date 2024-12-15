@@ -14,7 +14,6 @@ namespace StudentManagement
   {
     private AppDbContext _context;
 
-
     public StudentUserControl()
     {
       InitializeComponent();
@@ -69,6 +68,71 @@ namespace StudentManagement
       }
     }
 
+    private void ImportButton_Click(object sender, RoutedEventArgs e)
+    {
+      // Create OpenFileDialog to let user select an Excel file
+      var openFileDialog = new OpenFileDialog();
+      openFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+      openFileDialog.DefaultExt = ".xlsx";
+      // Show the dialog and check if a file is selected
+      bool? result = openFileDialog.ShowDialog();
+      if (result == true)
+      {
+        var filePath = openFileDialog.FileName;
+        try
+        {
+          // Open the selected Excel file using ClosedXML
+          var workbook = new XLWorkbook(filePath);
+          var worksheet = workbook.Worksheet(1); // Get the first worksheet
+
+          bool firstRow = true;
+          foreach (IXLRow row in worksheet.Rows())
+          {
+            //Use the first row to add columns to DataTable.
+            if (firstRow)
+            {
+              firstRow = false;
+            }
+            else
+            {
+              //Add rows to DataTable.
+              int i = 0;
+              Student student = new Student();
+              foreach (IXLCell cell in row.Cells(row.FirstCellUsed().Address.ColumnNumber, row.LastCellUsed().Address.ColumnNumber))
+              {
+                if (i == 1)
+                {
+                  student.Name = cell.Value.ToString();
+                }
+                else if (i == 2)
+                {
+                  student.Age = int.Parse(cell.Value.ToString());
+                }
+                else if (i == 3)
+                {
+                  student.Address = cell.Value.ToString();
+                }
+                else if (i == 4)
+                {
+                  student.Phone = cell.Value.ToString();
+                }
+
+                i++;
+              }
+              _context.Students.Add(student);
+              _context.SaveChanges();
+              LoadStudents();
+            }
+          }
+          MessageBox.Show("Dữ liệu đã được nhập thành công từ Excel.", "Import Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        catch (Exception ex)
+        {
+          MessageBox.Show($"Đã có lỗi xảy ra khi nhập dữ liệu: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+      }
+    }
+
     private void LoadStudents()
     {
       var students = _context.Students.ToList();
@@ -87,7 +151,7 @@ namespace StudentManagement
         Name = name,
         Age = age,
         Address = address,
-        Phone = phone
+        Phone = phone,
       };
 
       _context.Students.Add(student);

@@ -9,6 +9,6 @@ namespace StudentManagement.Models
         public string Address { get; set; }
         public string Phone { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }
