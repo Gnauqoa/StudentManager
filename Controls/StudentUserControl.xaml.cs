@@ -138,13 +138,42 @@ namespace StudentManagement
       var students = _context.Students.ToList();
       StudentsDataGrid.ItemsSource = students;
     }
-
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
       var name = NameTextBox.Text;
-      var age = int.Parse(AgeTextBox.Text);
+      var ageText = AgeTextBox.Text;
       var address = AddressTextBox.Text;
       var phone = PhoneTextBox.Text;
+
+      if (string.IsNullOrWhiteSpace(name))
+      {
+        MessageBox.Show("Tên không được để trống.", "Lỗi nhập liệu", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return;
+      }
+
+      if (string.IsNullOrWhiteSpace(ageText) || !int.TryParse(ageText, out int age) || age <= 0 || age > 120)
+      {
+        MessageBox.Show("Vui lòng nhập tuổi hợp lệ (1-120).", "Lỗi nhập liệu", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return;
+      }
+
+      if (string.IsNullOrWhiteSpace(address))
+      {
+        MessageBox.Show("Địa chỉ không được để trống.", "Lỗi nhập liệu", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return;
+      }
+
+      if (string.IsNullOrWhiteSpace(phone) || phone.Length < 10 || !long.TryParse(phone, out _))
+      {
+        MessageBox.Show("Vui lòng nhập số điện thoại hợp lệ (ít nhất 10 chữ số).", "Lỗi nhập liệu", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return;
+      }
+
+      if (_context.Students.Any(s => s.Phone == phone))
+      {
+        MessageBox.Show("Sinh viên với số điện thoại này đã tồn tại.", "Lỗi trùng lặp", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return;
+      }
 
       var student = new Student
       {
@@ -154,12 +183,24 @@ namespace StudentManagement
         Phone = phone,
       };
 
-      _context.Students.Add(student);
-      _context.SaveChanges();
+      try
+      {
+        _context.Students.Add(student);
+        _context.SaveChanges();
+        LoadStudents();
 
-      LoadStudents();
+        MessageBox.Show("Thêm sinh viên thành công.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        NameTextBox.Clear();
+        AgeTextBox.Clear();
+        AddressTextBox.Clear();
+        PhoneTextBox.Clear();
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Đã xảy ra lỗi khi thêm sinh viên: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
     }
-
     private void UpdateButton_Click(object sender, RoutedEventArgs e)
     {
       var selectedStudent = StudentsDataGrid.SelectedItem as Student;
@@ -180,13 +221,60 @@ namespace StudentManagement
     private void DeleteButton_Click(object sender, RoutedEventArgs e)
     {
       var selectedStudent = StudentsDataGrid.SelectedItem as Student;
+
       if (selectedStudent != null)
       {
-        _context.Students.Remove(selectedStudent);
-        _context.SaveChanges();
+        var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này không? Hành động này không thể hoàn tác.",
+                                     "Xác nhận xóa",
+                                     MessageBoxButton.YesNo,
+                                     MessageBoxImage.Warning);
+        if (result == MessageBoxResult.Yes)
+        {
+          try
+          {
+            // Xóa tất cả sinh viên khỏi cơ sở dữ liệu
+            _context.Students.Remove(selectedStudent);
+            _context.SaveChanges();
 
-        LoadStudents();
+            // Làm mới danh sách hiển thị
+            LoadStudents();
+            MessageBox.Show("Sinh viên đã bị xóa thành công.", "Xóa Hết", MessageBoxButton.OK, MessageBoxImage.Information);
+          }
+          catch (Exception ex)
+          {
+            MessageBox.Show($"Đã xảy ra lỗi khi xóa sinh viên: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+          }
+        }
       }
     }
+
+    private void DeleteAllButton_Click(object sender, RoutedEventArgs e)
+    {
+      // Hiển thị hộp thoại xác nhận
+      var result = MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả sinh viên không? Hành động này không thể hoàn tác.",
+                                   "Xác nhận xóa tất cả",
+                                   MessageBoxButton.YesNo,
+                                   MessageBoxImage.Warning);
+
+      if (result == MessageBoxResult.Yes)
+      {
+        try
+        {
+          // Xóa tất cả sinh viên khỏi cơ sở dữ liệu
+          _context.Students.RemoveRange(_context.Students);
+          _context.SaveChanges();
+
+          // Làm mới danh sách hiển thị
+          LoadStudents();
+
+          MessageBox.Show("Tất cả sinh viên đã bị xóa thành công.", "Xóa Hết", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        catch (Exception ex)
+        {
+          MessageBox.Show($"Đã xảy ra lỗi khi xóa tất cả sinh viên: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+      }
+    }
+
   }
 }

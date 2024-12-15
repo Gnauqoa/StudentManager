@@ -84,7 +84,16 @@
                         Height="30"
                         Margin="220,120,0,0"
                         Click="DeleteButton_Click"/>
-                <Button Name="ExportBUtton"
+                <Button Name="DeleteAllButton"
+                        Content="Xóa Tất Cả"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="100"
+                        Height="30"
+                        Margin="220,170,0,0"
+                        Click="DeleteAllButton_Click"/>
+
+                <Button Name="ExportButton"
                         Content="Xuất Excel"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
@@ -107,6 +116,6 @@
                           VerticalAlignment="Top"
                           Height="100"
                           Width="475"
-                          Margin="10,200,0,0"/>
+                          Margin="10,210,0,0"/>
         </Grid>
 </UserControl>

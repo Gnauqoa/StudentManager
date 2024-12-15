@@ -74,9 +74,9 @@
                 <DataGrid Name="UsersDataGrid"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Top"
-                          Height="200"
+                          Height="100"
                           Width="570"
-                          Margin="10,230,0,0"
+                          Margin="10,150,0,0"
                           AutoGenerateColumns="True"/>
         </Grid>
 </UserControl>
