@@ -7,7 +7,7 @@ namespace StudentManagement.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 
 }
