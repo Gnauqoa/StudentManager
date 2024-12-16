@@ -1,0 +1,179 @@
+﻿<Window x:Class="StudentManagement.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:StudentManagement"
+        xmlns:viewmodel="clr-namespace:StudentManagement.ViewModel"
+        xmlns:custom="clr-namespace:StudentManagement.View"
+        Title="Student Management"
+        Style="{StaticResource MaterialDesignWindow}"
+        Width="1280"
+        Height="720">
+
+        <Window.Resources>
+                <viewmodel:IsActiveToColorConverter x:Key="IsActiveToColorConverter"/>
+        </Window.Resources>
+        <Window.DataContext>
+                <viewmodel:MainWindowViewModel/>
+        </Window.DataContext>
+        <Grid>
+                <Grid.Resources>
+                        <!--Style TextBlock-->
+                        <Style TargetType="TextBlock">
+                                <Setter Property="Margin"
+                                        Value="20,0,0,0"/>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"/>
+                                <Setter Property="Foreground"
+                                        Value="White"/>
+                        </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="395*"/>
+                        <RowDefinition Height="309*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <!--Menu-->
+                <Grid Grid.Column="0"
+                      Grid.RowSpan="2">
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"/>
+                                <RowDefinition Height="0.005*"/>
+                                <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Column="0"
+                                   Grid.Row="0"
+                                   Fill="#FF1E2A39"/>
+                        <Rectangle Grid.Column="0"
+                                   Grid.Row="2"
+                                   Fill="#FF1E2A39"/>
+                        <Grid Grid.Row="0">
+                                <TextBlock Text="QLBH"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,0,0"
+                                           FontSize="35"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                                <StackPanel>
+                                        <!--Button_TongQuan-->
+                                        <Button x:Name="Button_TongQuan"
+                                                Background="{Binding CurrentViewName,
+                                        Converter={StaticResource IsActiveToColorConverter},
+                                        ConverterParameter='Button_TongQuan'}"
+                                                BorderThickness="0"
+                                                Height="50"
+                                                FontSize="25"
+                                                HorizontalContentAlignment="Left"
+                                                Command="{Binding SwitchToViewCommand}"
+                                                CommandParameter="Button_TongQuan">
+                                                <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Kind="Home"
+                                                                                 Width="30"
+                                                                                 Height="30"/>
+                                                        <TextBlock Text="Tổng quan"/>
+                                                </StackPanel>
+                                        </Button>
+                                        <!--Button_DonHang-->
+                                        <Button x:Name="Button_DonHang"
+                                                Background="{Binding CurrentViewName,
+                                        Converter={StaticResource IsActiveToColorConverter},
+                                        ConverterParameter='Button_DonHang'}"
+                                                BorderThickness="0"
+                                                Height="50"
+                                                FontSize="25"
+                                                HorizontalContentAlignment="Left"
+                                                Command="{Binding SwitchToViewCommand}"
+                                                CommandParameter="{Binding ElementName=Button_DonHang, Path=Name}">
+                                                <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Kind="InvoiceList"
+                                                                                 Width="30"
+                                                                                 Height="30"/>
+                                                        <TextBlock Text="Đơn hàng"/>
+                                                </StackPanel>
+                                        </Button>
+                                        <!--Button_KhoHang-->
+                                        <Button x:Name="Button_KhoHang"
+                                                Background="{Binding CurrentViewName,
+                                        Converter={StaticResource IsActiveToColorConverter},
+                                        ConverterParameter='Button_KhoHang'}"
+                                                BorderThickness="0"
+                                                Height="50"
+                                                FontSize="25"
+                                                HorizontalContentAlignment="Left"
+                                                Command="{Binding SwitchToViewCommand}"
+                                                CommandParameter="Button_KhoHang">
+                                                <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Kind="Archive"
+                                                                                 Width="30"
+                                                                                 Height="30"/>
+                                                        <TextBlock Text="Kho hàng"/>
+                                                </StackPanel>
+                                        </Button>
+                                        <!--Button_KhachHang-->
+                                        <Button x:Name="Button_KhachHang"
+                                                Background="{Binding CurrentViewName,
+                                        Converter={StaticResource IsActiveToColorConverter},
+                                        ConverterParameter='Button_KhachHang'}"
+                                                BorderThickness="0"
+                                                Height="50"
+                                                FontSize="25"
+                                                HorizontalContentAlignment="Left"
+                                                Command="{Binding SwitchToViewCommand}"
+                                                CommandParameter="{Binding ElementName=Button_KhachHang, Path=Name}">
+                                                <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Kind="Account"
+                                                                                 Width="30"
+                                                                                 Height="30"/>
+                                                        <TextBlock Text="Khách hàng"/>
+                                                </StackPanel>
+                                        </Button>
+                                        <!--Button_BaoCao-->
+                                        <Button x:Name="Button_BaoCao"
+                                                Background="{Binding CurrentViewName,
+                                    Converter={StaticResource IsActiveToColorConverter},
+                                    ConverterParameter='Button_BaoCao'}"
+                                                BorderThickness="0"
+                                                Height="50"
+                                                FontSize="25"
+                                                HorizontalContentAlignment="Left"
+                                                Command="{Binding SwitchToViewCommand}"
+                                                CommandParameter="{Binding ElementName=Button_BaoCao, Path=Name}">
+                                                <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Kind="ChartBar"
+                                                                                 Width="30"
+                                                                                 Height="30"/>
+                                                        <TextBlock Text="Báo cáo"/>
+                                                </StackPanel>
+                                        </Button>
+                                </StackPanel>
+                                <!--Button_ThietLap-->
+                                <Button x:Name="Button_ThietLap"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Height="50"
+                                        FontSize="25"
+                                        HorizontalContentAlignment="Left"
+                                        VerticalAlignment="Bottom"
+                                        Command="{Binding SwitchToViewCommand}"
+                                        CommandParameter="{Binding ElementName=Button_ThietLap, Path=Name}">
+                                        <StackPanel Orientation="Horizontal">
+                                                <materialDesign:PackIcon Kind="Cog"
+                                                                         Width="30"
+                                                                         Height="30"/>
+                                                <TextBlock Text="Thiết lập"/>
+                                        </StackPanel>
+                                </Button>
+
+                        </Grid>
+                </Grid>
+
+                <ContentControl Grid.Column="1"
+                                Grid.RowSpan="2"
+                                Content="{Binding CurrentView}">
+                </ContentControl>
+        </Grid>
+</Window>

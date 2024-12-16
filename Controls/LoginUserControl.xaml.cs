@@ -21,8 +21,8 @@ namespace StudentManagement
 
     private void LoginButton_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-      string username = UsernameTextBox.Text;
-      string password = PasswordBox.Password;
+      string username = "";
+      string password = "";
 
       // Kiểm tra tài khoản trong cơ sở dữ liệu
       User? user = CheckLogin(username, password);
