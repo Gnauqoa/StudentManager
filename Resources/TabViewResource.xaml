@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:view="clr-namespace:StudentManagement.View"
+                    xmlns:viewmodel="clr-namespace:StudentManagement.ViewModel"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate DataType="{x:Type viewmodel:LoginViewModel}">
+        <view:LoginView/>
+    </DataTemplate>
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <viewmodel:LoginViewModel x:Key="LoginVM"/>
+
+
+</ResourceDictionary>
