@@ -20,10 +20,10 @@ namespace StudentManagement.ViewModel
     public MainWindowViewModel()
     {
       viewDictionary ??= new();
-      // viewDictionary.Add("Button_TongQuan", new TongQuanViewModel());
+      viewDictionary.Add("Button_Student", new StudentViewModel());
       // viewDictionary.Add("Button_DonHang", new DonHangViewModel());
 
-      SwitchToView("Button_TongQuan");
+      SwitchToView("Button_Student");
     }
 
     [RelayCommand]

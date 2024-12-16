@@ -9,6 +9,7 @@
 
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <viewmodel:LoginViewModel x:Key="LoginVM"/>
+    <viewmodel:StudentViewModel x:Key="StudentVM"/>
 
 
 </ResourceDictionary>
