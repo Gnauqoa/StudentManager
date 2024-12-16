@@ -100,23 +100,14 @@
               <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- TabControl -->
-            <TabControl Grid.Column="0"
-                        SelectedIndex="{Binding SelectedTabIndex}">
-              <TabItem Header="Tất cả"
-                       Foreground="#FF1E2A39"/>
-              <TabItem Header="Đang trưng bày"
-                       Foreground="#FF1E2A39"/>
-              <TabItem Header="Lưu trữ"
-                       Foreground="#FF1E2A39"/>
-            </TabControl>
+
 
           </Grid>
 
           <!-- Datagrid chính -->
           <Grid Grid.Row="1"
                 Margin="10">
-            <DataGrid ItemsSource="{Binding Products}"
+            <DataGrid ItemsSource="{Binding Students}"
                       SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
                       Name="dataGrid"
                       IsReadOnly="True"
@@ -161,20 +152,20 @@
                     </DataTemplate>
                   </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Mã Hàng Hóa"
+                <DataGridTextColumn Header="Mã sinh viên"
                                     Binding="{Binding Id}"
                                     Width="2*"/>
-                <DataGridTextColumn Header="Tên Hàng Hóa"
-                                    Binding="{Binding ProductName}"
+                <DataGridTextColumn Header="Tên sinh viên"
+                                    Binding="{Binding Name}"
                                     Width="4*"/>
-                <DataGridTextColumn Header="Số Lượng"
-                                    Binding="{Binding Stock}"
+                <DataGridTextColumn Header="Tuổi"
+                                    Binding="{Binding Age}"
                                     Width="2*"/>
-                <DataGridTextColumn Header="Đơn Vị"
-                                    Binding="{Binding Unit}"
+                <DataGridTextColumn Header="Địa chỉ"
+                                    Binding="{Binding Address}"
                                     Width="2*"/>
-                <DataGridTextColumn Header="Loại Hàng Hóa"
-                                    Binding="{Binding Category.CategoryName}"
+                <DataGridTextColumn Header="Số điện thoại"
+                                    Binding="{Binding Phone}"
                                     Width="3*"/>
               </DataGrid.Columns>
             </DataGrid>
